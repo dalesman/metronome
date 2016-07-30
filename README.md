@@ -1,4 +1,5 @@
 # metronome
+## A metronome application for Linux
 
 **Functionality:**
 * A lot of preset rhythmic patterns.
