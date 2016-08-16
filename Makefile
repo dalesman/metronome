@@ -1,0 +1,40 @@
+############################################################################
+# From "7.2.1 General Conventions for Makefiles"
+# https://www.gnu.org/prep/standards/html_node/Makefile-Basics.html
+SHELL = /bin/sh
+
+.SUFFIXES:
+.SUFFIXES: .c .cpp .o
+############################################################################
+
+TOP_DIR := $(CURDIR)
+
+METRONOME_BIN_DIR := $(TOP_DIR)/bin
+export METRONOME_BIN_DIR
+
+SRC_DIRS := \
+	src\
+	unit_tests
+
+ifeq ($(.DEFAULT_GOAL),)
+  $(warning Default goal is not set. Setting it to 'all')
+  .DEFAULT_GOAL := all
+endif
+
+
+
+%:
+	@echo "[Doing $@]"
+	@for dir in $(SRC_DIRS); do \
+		${MAKE} -C $$dir $@; \
+	done
+		
+#		(cd $$dir; ${MAKE} all); \ 
+#	$(foreach src_dir, $(SRC_DIRS), $(MAKE) -C $(src_dir))
+#	$(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog)))) - from "8.9 The eval Function" of the 'make' manual
+	@echo "[Done $@]"
+
+metronome:
+
+unit_test:
+
