@@ -7,9 +7,13 @@ SHELL = /bin/sh
 .SUFFIXES: .c .cpp .o
 ############################################################################
 
-TOP_DIR := $(CURDIR)
-
-METRONOME_BIN_DIR := $(TOP_DIR)/bin
+METRONOME_TOP_DIR := $(CURDIR)
+export METRONOME_TOP_DIR
+METRONOME_SRC_DIR := $(METRONOME_TOP_DIR)/src
+export METRONOME_SRC_DIR
+METRONOME_INC_DIR := $(METRONOME_TOP_DIR)/src
+export METRONOME_INC_DIR
+METRONOME_BIN_DIR := $(METRONOME_TOP_DIR)/bin
 export METRONOME_BIN_DIR
 
 SRC_DIRS := \
